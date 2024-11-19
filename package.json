@@ -1,17 +1,15 @@
 {
   "name": "fct-miner",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "license": "Apache-2.0",
   "description": "Mine FCT on Facet v2 Sepolia; would work for when mainnet launch too.",
   "scripts": {
     "start": "bun ./index.js",
-    "prepublishOnly": "bun build index.ts --outfile cli.js --no-bundle --target bun"
   },
   "files": [
-    "index.ts",
-    "cli.js"
+    "index.js"
   ],
-  "bin": "./cli.js",
+  "bin": "./index.js",
   "dependencies": {
     "@0xfacet/sdk": "^0.0.20",
     "viem": "^2.21.48"

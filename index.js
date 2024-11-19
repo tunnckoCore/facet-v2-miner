@@ -1,5 +1,5 @@
 import { walletL1FacetActions } from '@0xfacet/sdk/viem';
-import { http, createWalletClient, fallback, formatEther } from 'viem';
+import { http, createWalletClient, fallback, formatEther, toHex } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 import { sepolia } from 'viem/chains';
 
