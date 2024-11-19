@@ -23,9 +23,11 @@ npm install -g fct-miner
 PRIVKEY=myprivkey fct-miner
 ```
 
+If neither of these work for some reason, just clone the repo and run `bun install` and `bun run start`, or `npm install` and `npm start`.
+
 ## Deploy on Fly.io
 
-You should pass your private key on `privkey` field on the `package.json`, or as environment variable on Fly.
+You should always pass your private key as a secret, and then deploy the app:
 
 ```bash
 fly secrets set PRIVKEY=yourprivatekey
