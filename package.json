@@ -1,0 +1,25 @@
+{
+  "name": "fct-miner",
+  "version": "0.1.3",
+  "license": "Apache-2.0",
+  "description": "Mine FCT on Facet v2 Sepolia; would work for when mainnet launch too.",
+  "scripts": {
+    "start": "bun run ./index.ts"
+  },
+  "files": [
+    "index.ts"
+  ],
+  "rpcs": [
+    "https://sepolia.drpc.org",
+    "https://1rpc.io/sepolia",
+    "https://sepolia.facet.org"
+  ],
+  "privkey": "",
+  "dependencies": {
+    "@0xfacet/sdk": "^0.0.19",
+    "viem": "^2.21.48"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.13"
+  }
+}
