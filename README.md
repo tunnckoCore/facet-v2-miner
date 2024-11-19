@@ -6,7 +6,32 @@ You can run it locally by installing the binary, or you can deploy it on Fly.io 
 
 ![image](https://github.com/user-attachments/assets/805c0a22-8b30-4ec5-8bd2-c7ec2ed90a26)
 
-## Usage
+## Local usage
+
+You have to have Bun or Nodejs installed.
+Go to https://bun.sh for more info. Bun is better, smaller, faster, drop-in replacement for the Nodejs runtime.
+
+For Linux/MacOS
+
+```
+curl -fsSL https://bun.sh/install | bash
+```
+
+For Windows
+
+```
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+
+Then run `bun start`. Make sure to have SepoliaETH funds in the wallet of the given private key.
+
+```
+git clone https://github.com/tunnckoCore/facet-v2-miner.git
+cd facet-v2-miner
+PRIVKEY=your_private_key_hex_here bun start
+```
+
+## Usage as CLI
 
 Using `npx` or `pnpm dlx` or `bunx`:
 

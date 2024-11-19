@@ -6,7 +6,6 @@ import { sepolia } from 'viem/chains';
 const RPCS = [
   "https://sepolia.drpc.org",
   "https://1rpc.io/sepolia",
-  "https://sepolia.facet.org"
 ]
 
 const PRIVKEY = process.env.PRIVKEY || '';
@@ -28,7 +27,7 @@ async function mineFCT() {
   const { l1TransactionHash, facetTransactionHash, fctMintAmount, fctMintRate } =
     await walletClient.sendFacetTransaction({
       to: account.address,
-      data: toHex('foo bar baz, the bigger the more FCT is minted'),
+      data: toHex('Ethereum Recyphered. Foo bar baz, the bigger the more FCT is minted. Human society shall be enciphered.'),
       value: 0n,
     });
 
