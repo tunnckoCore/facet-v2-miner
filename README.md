@@ -4,6 +4,8 @@ Simple miner to the Facet v2 FCT token, currently mines on Sepolia, but would wo
 
 You can run it locally by installing the binary, or you can deploy it on Fly.io for perpetual mining with stable and fast internet connection.
 
+![image](https://github.com/user-attachments/assets/805c0a22-8b30-4ec5-8bd2-c7ec2ed90a26)
+
 ## Usage
 
 Using `npx` or `pnpm dlx` or `bunx`:
