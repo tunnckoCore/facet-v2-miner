@@ -1,8 +1,7 @@
-import { facetSepolia, walletL1FacetActions } from '@0xfacet/sdk/viem';
-import { http, createWalletClient, fallback, createPublicClient, formatEther, toHex } from 'viem';
+import { walletL1FacetActions } from '@0xfacet/sdk/viem';
+import { http, createWalletClient, fallback, formatEther } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 import { sepolia } from 'viem/chains';
-import { publicActionsL2 } from 'viem/op-stack';
 
 const RPCS = [
   "https://sepolia.drpc.org",
@@ -24,20 +23,16 @@ const walletClient = createWalletClient({
   transport: fallback(RPCS.map((x) => http(x)).concat(http())),
 }).extend(walletL1FacetActions);
 
-const publicClient = createPublicClient({
-  chain: facetSepolia,
-  transport: http(),
-}).extend(publicActionsL2());
-
 // ~20951 FCT per transaction, per 0.000002121299924744 Sepolia ETH, at 0.001002463 Gwei sepolia gas price
 async function mineFCT() {
-  const { l1TransactionHash, facetTransactionHash } =
+  const { l1TransactionHash, facetTransactionHash, fctMintAmount, fctMintRate } =
     await walletClient.sendFacetTransaction({
       to: account.address,
-      data: toHex('Hello World'),
+      data: toHex('foo bar baz, the bigger the more FCT is minted'),
       value: 0n,
     });
 
+  console.log('Minted amount:', formatEther(fctMintAmount));
   console.log('Layer-1 Transaction Hash:', l1TransactionHash);
   console.log('FacetV2 Transaction Hash:', facetTransactionHash);
 
@@ -50,17 +45,7 @@ async function run() {
   while (true) {
     console.log("Mining...")
     await mineFCT();
-    console.log('Mined 20951 FCT');
-    await Bun.sleep(3000);
-  }
-
-  while (true) {
-    await Bun.sleep(20000);
-    const balance = await publicClient.getBalance({
-      address: account.address,
-      blockTag: 'pending',
-    });
-    console.log('Balance:', formatEther(balance));
+    await Bun.sleep(5000);
   }
 }
 
