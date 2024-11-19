@@ -1,6 +1,6 @@
 {
   "name": "fct-miner",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "Apache-2.0",
   "description": "Mine FCT on Facet v2 Sepolia; would work for when mainnet launch too.",
   "scripts": {
